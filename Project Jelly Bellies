@@ -1,0 +1,506 @@
+#Project Jelly Bellies (Coding with Python)
+
+
+#- Part A - The Jelly Belly Flavors (5 Points)
+#- Part B - The Jelly Belly Fan Club Members (5 Points)
+#- Part C - The Bean Bags (10 Points)
+#- Part D - The Promo Beans (5 Points)
+#- Part E - All The Beans (5 Points)
+#- Part F - The Trades (10 Points)
+#- Part G - The Recipes (10 Points)
+#- Part H - Initializing Recipe Counts (10 Points)
+#- Part I - Making Recipes (20 Points)
+#- Part J - Display Recipe Counts (10 Points)
+#- Part K - The Final Results (10 Points)
+
+
+## Part A - The Jelly Belly Flavors
+#Below is a `list` of popular Jelly Belly `flavors`.
+
+#**Action:** Execute the following code block.
+
+flavors = [ "Coconut", "Strawberry Cheesecake", "Green Apple", "Licorice", "Kiwi", "Berry Blue", "Dr. Pepper", "Sunkist Orange", "Chili Mango", "Pomegranate", "Sunkist Lime", "Caramel Corn", "Cappuccino", "French Vanilla", "Red Apple", "Very Cherry", "Buttered Popcorn", "Lemon Drop", "Orange Sherbet", "Tutti-Fruitti", "Sunkist Lemon", "Sunkist Tangerine", "Strawberry Daiquiri", "Plum", "Sizzling Cinnamon", "Margarita", "A&W Cream Soda", "Cotton Candy", "Island Punch", "Raspberry", "Strawberry Jam", "Bubble Gum", "Lemon Lime", "Top Banana", "Cinnamon", "Peach", "Crushed Pineapple", "Watermelon", "A&W Root Beer", "Blueberry", "Sunkist Pink Grapefruit", "Mango", "Pina Colada", "Juicy Pear", "Mixed Berry Smoothie", "Toasted Marshmallow", "Chocolate Pudding", "Wild Blackberry", "Sour Cherry", "Cantaloupe" ]
+
+#**Actions:**
+
+#- Sort `flavors` alphabetically by name.
+#- Convert the sorted list `flavors` into a tuple.
+#- Reassign the `tuple` back into the `flavors` variable.
+#- Using a `while` loop along with a counter variable, output each flavor in `flavors` out on a separate line, along with a one-based count.  Example:
+
+# Your Part A implementation:
+
+flavors.sort()
+flavors = tuple(flavors)
+
+i = 1 
+for flavor in flavors:
+    print(f"{i}. {flavor}")
+    i += 1
+
+## Part B - The Jelly Belly Fan Club Members
+
+#There are three University of Rochester students in local chapter of the Jelly Belly Fan Club: Clara, Ben, and Alex.
+
+#They love Jelly Bellies!
+
+#**Actions:**
+#- Create a `list` named `memberNames` which contains the names "Clara", "Ben", and "Alex", in that order.
+#- Sort `memberNames` alphabetically by name.
+#- Convert the sorted list `memberNames` into a `tuple`.
+#- Reassign the `tuple` back into the `memberNames` variable.
+#- Using a `for` loop, print each name in `memberNames` out on a separate line.
+
+# Your Part B implementation: 
+
+memberNames = ["Clara", "Ben", "Alex"]
+memberNames.sort()
+memberNames = tuple(memberNames)
+for name in memberNames:
+    print(name)
+
+## Part C - The Bean Bags
+
+#As a club event, the Jelly Belly Fan Club Members went to store, where each member bought an oversized bag of assorted Jelly Belly jelly beans.
+
+#Jelly Belly corporate quality control tells us that each bag contains between 20-50 beans for each flavor in `flavors`.
+
+#That's a lot of beans in each bag!
+
+#**Action:** Create a blank `dictionary` called `beanBags` that will hold all the contents of each bag.
+
+# Your implementation:
+
+beanBags = {}
+
+#The members returned to their club room to sort and count their beans by flavor.
+
+#Below are the results.
+
+#**Action:** Execute the following code block.
+
+alexBeans = { 'A&W Cream Soda': 24, 'A&W Root Beer': 50, 'Berry Blue': 49, 'Blueberry': 25, 'Bubble Gum': 37, 'Buttered Popcorn': 27, 'Cantaloupe': 25, 'Cappuccino': 36, 'Caramel Corn': 36, 'Chili Mango': 29, 'Chocolate Pudding': 49, 'Cinnamon': 23, 'Coconut': 27, 'Cotton Candy': 25, 'Crushed Pineapple': 21, 'Dr. Pepper': 21, 'French Vanilla': 38, 'Green Apple': 36, 'Island Punch': 31, 'Juicy Pear': 40, 'Kiwi': 38, 'Lemon Drop': 27, 'Lemon Lime': 42, 'Licorice': 30, 'Mango': 41, 'Margarita': 42, 'Mixed Berry Smoothie': 24, 'Orange Sherbet': 20, 'Peach': 43, 'Pina Colada': 33, 'Plum': 20, 'Pomegranate': 35, 'Raspberry': 41, 'Red Apple': 45, 'Sizzling Cinnamon': 29, 'Sour Cherry': 48, 'Strawberry Cheesecake': 40, 'Strawberry Daiquiri': 23, 'Strawberry Jam': 42, 'Sunkist Lemon': 44, 'Sunkist Lime': 26, 'Sunkist Orange': 45, 'Sunkist Pink Grapefruit': 27, 'Sunkist Tangerine': 22, 'Toasted Marshmallow': 42, 'Top Banana': 22, 'Tutti-Fruitti': 30, 'Very Cherry': 28, 'Watermelon': 33, 'Wild Blackberry': 23 }
+benBeans = { 'A&W Cream Soda': 46, 'A&W Root Beer': 33, 'Berry Blue': 24, 'Blueberry': 44, 'Bubble Gum': 46, 'Buttered Popcorn': 38, 'Cantaloupe': 48, 'Cappuccino': 46, 'Caramel Corn': 39, 'Chili Mango': 41, 'Chocolate Pudding': 29, 'Cinnamon': 26, 'Coconut': 25, 'Cotton Candy': 45, 'Crushed Pineapple': 30, 'Dr. Pepper': 32, 'French Vanilla': 43, 'Green Apple': 20, 'Island Punch': 33, 'Juicy Pear': 20, 'Kiwi': 41, 'Lemon Drop': 26, 'Lemon Lime': 48, 'Licorice': 50, 'Mango': 41, 'Margarita': 37, 'Mixed Berry Smoothie': 42, 'Orange Sherbet': 31, 'Peach': 47, 'Pina Colada': 46, 'Plum': 47, 'Pomegranate': 25, 'Raspberry': 45, 'Red Apple': 37, 'Sizzling Cinnamon': 48, 'Sour Cherry': 40, 'Strawberry Cheesecake': 21, 'Strawberry Daiquiri': 34, 'Strawberry Jam': 32, 'Sunkist Lemon': 20, 'Sunkist Lime': 20, 'Sunkist Orange': 40, 'Sunkist Pink Grapefruit': 32, 'Sunkist Tangerine': 49, 'Toasted Marshmallow': 34, 'Top Banana': 34, 'Tutti-Fruitti': 38, 'Very Cherry': 27, 'Watermelon': 38, 'Wild Blackberry': 31 }
+claraBeans = { 'A&W Cream Soda': 32, 'A&W Root Beer': 25, 'Berry Blue': 33, 'Blueberry': 27, 'Bubble Gum': 45, 'Buttered Popcorn': 46, 'Cantaloupe': 35, 'Cappuccino': 30, 'Caramel Corn': 43, 'Chili Mango': 40, 'Chocolate Pudding': 34, 'Cinnamon': 32, 'Coconut': 29, 'Cotton Candy': 42, 'Crushed Pineapple': 44, 'Dr. Pepper': 25, 'French Vanilla': 47, 'Green Apple': 45, 'Island Punch': 27, 'Juicy Pear': 30, 'Kiwi': 33, 'Lemon Drop': 21, 'Lemon Lime': 38, 'Licorice': 22, 'Mango': 29, 'Margarita': 27, 'Mixed Berry Smoothie': 48, 'Orange Sherbet': 21, 'Peach': 46, 'Pina Colada': 31, 'Plum': 47, 'Pomegranate': 46, 'Raspberry': 40, 'Red Apple': 32, 'Sizzling Cinnamon': 32, 'Sour Cherry': 28, 'Strawberry Cheesecake': 30, 'Strawberry Daiquiri': 31, 'Strawberry Jam': 47, 'Sunkist Lemon': 47, 'Sunkist Lime': 44, 'Sunkist Orange': 32, 'Sunkist Pink Grapefruit': 49, 'Sunkist Tangerine': 30, 'Toasted Marshmallow': 31, 'Top Banana': 41, 'Tutti-Fruitti': 49, 'Very Cherry': 40, 'Watermelon': 32, 'Wild Blackberry': 30 }
+
+#**Actions:**
+
+#- Add Alex's Jelly Belly counts from `alexBeans` to the `beanBags` dictionary, using `Alex` as the key.
+#- Add Ben's Jelly Belly counts from `benBeans` to the `beanBags` dictionary, using `Ben` as the key.
+#- Add Clara's Jelly Belly counts from `claraBeans` to the `beanBags` dictionary, using `Clara` as the key.
+#- From the `beanBags` dictionary, use a `for` loop with both `key` and a `value` iterator variables.
+#- For each member:
+ #   1. Print the key (the member's name)
+ #   2. Print the value (the member's Jelly Bellies as a dictionary)
+
+# Your implementation:
+
+beanBags["Alex"] = alexBeans
+beanBags["Ben"] = benBeans 
+beanBags["Clara"] = claraBeans
+
+for member, beans in beanBags.items():
+    print(member)
+    print(beans)
+    
+
+#**Action:** 
+
+#- Access and print out the following values:
+
+#    1. How many "Bubble Gum" beans does Alex have?
+#    2. How many *more* "Watermelon" beans does Ben have compared to Clara?
+#    3. How many "Mixed Berry Smoothie" beans does Clara have?
+
+# Your implementation:
+
+print(alexBeans["Bubble Gum"])
+print(benBeans["Watermelon"] - claraBeans["Watermelon"])  
+print(claraBeans["Mixed Berry Smoothie"])
+
+## Part D - The Promo Beans
+
+#When checking out at the store, each member received a free, promotional ("promo") bag of Jelly Bellies.
+
+#Each promo bag has exactly 200 beans, and each promo bag has the exact same flavors and flavor quantity of beans.
+
+#Alex inventoried the flavors in the promo bag, listing each flavor separately.  Below are the results.
+
+#**Action:** Execute the following code block.
+
+promoBeans = ('French Vanilla', 'Green Apple', 'Cinnamon', 'Red Apple', 'Sunkist Lime', 'Licorice', 'Blueberry', 'Sunkist Lemon', 'Plum', 'Pina Colada', 'Bubble Gum', 'Strawberry Cheesecake', 'French Vanilla', 'Coconut', 'Licorice', 'Caramel Corn', 'Strawberry Cheesecake', 'Cinnamon', 'Cappuccino', 'Pina Colada', 'French Vanilla', 'Very Cherry', 'Lemon Drop', 'Blueberry', 'Dr. Pepper', 'Watermelon', 'Plum', 'Kiwi', 'Sizzling Cinnamon', 'Pina Colada', 'A&W Root Beer', 'Kiwi', 'A&W Cream Soda', 'Buttered Popcorn', 'Strawberry Cheesecake', 'Peach', 'Sunkist Lemon', 'Blueberry', 'Bubble Gum', 'Blueberry', 'Cinnamon', 'Cappuccino', 'Cotton Candy', 'Berry Blue', 'Tutti-Fruitti', 'Pomegranate', 'Toasted Marshmallow', 'Caramel Corn', 'Watermelon', 'Red Apple', 'Pomegranate', 'Cinnamon', 'Sunkist Lime', 'Cantaloupe', 'Margarita', 'Toasted Marshmallow', 'Sunkist Lime', 'Strawberry Daiquiri', 'Cappuccino', 'A&W Cream Soda', 'Juicy Pear', 'Green Apple', 'Strawberry Cheesecake', 'Red Apple', 'Mango', 'Chili Mango', 'Sizzling Cinnamon', 'Blueberry', 'Chili Mango', 'Plum', 'Cotton Candy', 'Cappuccino', 'Sizzling Cinnamon', 'Caramel Corn', 'Top Banana', 'Sunkist Lime', 'Buttered Popcorn', 'Pina Colada', 'Peach', 'Berry Blue', 'Sunkist Lime', 'Strawberry Jam', 'Berry Blue', 'Licorice', 'A&W Cream Soda', 'Strawberry Jam', 'Tutti-Fruitti', 'Peach', 'Coconut', 'Tutti-Fruitti', 'Mixed Berry Smoothie', 'Watermelon', 'Sunkist Pink Grapefruit', 'Licorice', 'Toasted Marshmallow', 'Coconut', 'Caramel Corn', 'Green Apple', 'Juicy Pear', 'Coconut', 'Island Punch', 'Sizzling Cinnamon', 'Caramel Corn', 'Cantaloupe', 'Berry Blue', 'Lemon Drop', 'Crushed Pineapple', 'Cotton Candy', 'Blueberry', 'Strawberry Daiquiri', 'Strawberry Jam', 'Lemon Drop', 'Caramel Corn', 'Licorice', 'Very Cherry', 'Raspberry', 'Toasted Marshmallow', 'Watermelon', 'Red Apple', 'Toasted Marshmallow', 'Sunkist Pink Grapefruit', 'Strawberry Daiquiri', 'Sour Cherry', 'Red Apple', 'Tutti-Fruitti', 'Mango', 'A&W Cream Soda', 'A&W Cream Soda', 'Dr. Pepper', 'Very Cherry', 'Toasted Marshmallow', 'Blueberry', 'Chocolate Pudding', 'Sunkist Lemon', 'Red Apple', 'A&W Cream Soda', 'Dr. Pepper', 'Pomegranate', 'Watermelon', 'Strawberry Jam', 'Sunkist Lime', 'Plum', 'Top Banana', 'Lemon Lime', 'Very Cherry', 'Wild Blackberry', 'Chocolate Pudding', 'Pomegranate', 'Peach', 'Bubble Gum', 'Coconut', 'Bubble Gum', 'Strawberry Jam', 'Cappuccino', 'Pina Colada', 'Strawberry Jam', 'Cantaloupe', 'Cotton Candy', 'French Vanilla', 'Sunkist Pink Grapefruit', 'Berry Blue', 'Raspberry', 'Berry Blue', 'Caramel Corn', 'A&W Root Beer', 'Kiwi', 'Pina Colada', 'Cotton Candy', 'Red Apple', 'A&W Cream Soda', 'Sizzling Cinnamon', 'Coconut', 'Wild Blackberry', 'A&W Cream Soda', 'Orange Sherbet', 'Sour Cherry', 'Watermelon', 'Caramel Corn', 'Orange Sherbet', 'Green Apple', 'Wild Blackberry', 'Bubble Gum', 'Sunkist Orange', 'Sunkist Pink Grapefruit', 'Tutti-Fruitti', 'Red Apple', 'Lemon Drop', 'Sizzling Cinnamon', 'Strawberry Cheesecake', 'Caramel Corn', 'Sunkist Pink Grapefruit', 'Lemon Lime', 'Green Apple', 'Buttered Popcorn', 'Lemon Lime', 'Juicy Pear', 'Plum', 'Watermelon', 'Sunkist Pink Grapefruit', 'Pomegranate')
+
+#**Action:** Adjust (increment) each member's bean totals based on their promo bag.
+
+#Notes/Hints on your adjustment algorithm:
+#- Each item/flavor in the `promoBeans` tuple represents one(1) bean of that flavor.
+#- You may want to use a nested `for` loop.
+#- The first/outer `for` loop iterates over the memberNames.
+#- The second/inner `for` loop iterates over the promoBeans.
+#- Inside the inner loop, add one(1) bean to the current flavor total for the current member.
+
+# Your implementation:
+
+for member in memberNames:
+    for flavor in promoBeans:
+        beanBags[member][flavor] += 1
+
+
+#**Actions:**
+
+#- Access and print out the following values:
+
+#    1. Now, how many "Bubble Gum" beans does Alex have?
+#    2. Now, how many *more* "Watermelon" beans does Ben have compared to Clara?
+#    3. Now, how many "Mixed Berry Smoothie" beans does Clara have?
+
+# Your implementation:
+
+print(alexBeans["Bubble Gum"])  
+print(benBeans["Watermelon"] - claraBeans["Watermelon"])
+print(claraBeans["Mixed Berry Smoothie"])
+
+
+## Part E - All The Beans
+#**Actions:**
+
+#- Using a `for` loop and the `memberNames` list, how many total Lemon Lime beans would the members have if they pooled all their beans together?
+#- **Do not** reference "Alex", "Ben", or "Clara" as a hard-coded string.  There is a more dynamic way to do this using the loop.
+#- You may use a hard-coded string for "Lemon Lime".
+#- Store the result in a variable called `totalLemonLimeAllMembers`.
+#- Output `totalLemonLimeAllMembers` to the screen.
+
+# Your implementation:
+
+totalLemonLimeAllMembers = 0
+for member in memberNames:
+    totalLemonLimeAllMembers += beanBags[member]["Lemon Lime"]
+    
+print(totalLemonLimeAllMembers)
+
+#**Action:** If all the members pooled **all** their beans together, how many total beans would they have?
+
+#- Use a nested `for` loop.
+#- **Do not** reference any member name or flavor with a hard-coded string.
+#- Store your result in `totalBeansAllMembers`.
+#- Output `totalBeansAllMembers` to the screen.
+
+# Your implementation:
+
+totalBeansAllMembers = 0
+for member in memberNames:
+    for flavor in flavors:
+        totalBeansAllMembers += beanBags[member][flavor]
+        
+print(totalBeansAllMembers)
+
+## Part F - The Trades
+
+#Alex and Ben like to trade Jelly Bellies so each gets more of their favorite flavors.
+
+### The First Trade
+
+#Alex gives Ben five(5) of his "Pina Colada" beans in exchange for five(5) of Ben's "Margarita" beans.
+
+#This is an even trade!
+
+#**Action:** Adjust the values for both Alex's and Ben's beans due to this trade.
+
+#- Note: You may use hard-coded string values for list, tuple, or dictionary access.
+
+# Your implementation:
+
+beanBags["Alex"]["Pina Colada"] = beanBags["Alex"].get("Pina Colada", 0) - 5
+beanBags["Ben"]["Margarita"] = beanBags["Ben"].get("Margarita", 0) - 5
+
+beanBags["Ben"]["Pina Colada"] = beanBags["Ben"].get("Pina Colada", 0) + 5
+beanBags["Alex"]["Margarita"] = beanBags["Alex"].get("Margarita", 0) + 5
+
+beanBags["Alex"]["Pina Colada"], beanBags["Ben"]["Pina Colada"], beanBags["Alex"]["Margarita"], beanBags["Ben"]["Margarita"]
+
+### The Second Trade
+#Clara also wants to make a trade and get more of her favorite flavors!
+
+#Clara and Alex swap all their "A&W Root Beer" beans.
+
+#Since Alex has a lot more "A&W Root Beer" beans than Clara, to make the trade fair, Clara also gives Alex twenty-five (25) of her "Chocolate Pudding" beans.
+
+#**Action:** Adjust the values for both Clara's and Alex's beans due to this trade.
+
+#- Note: You may use hard-coded string values for list, tuple, or dictionary access.
+
+# Your implementation:
+
+temp = beanBags["Alex"]["A&W Root Beer"]
+beanBags["Alex"]["A&W Root Beer"] = beanBags["Clara"]["A&W Root Beer"]
+beanBags["Clara"]["A&W Root Beer"] = temp
+beanBags["Clara"]["Chocolate Pudding"] -= 25
+beanBags["Alex"]["Chocolate Pudding"] += 25
+
+### Check on Alex's Beans Post-Trades
+#**Action:** Now that the trades are over, calculate the total number of beans that Alex has in his bag.
+
+#- Store the value in `totalBeansAlex`.
+#- Output `totalBeansAlex` to the screen.
+#- Note: You may use hard-coded string values for list, tuple, or dictionary access.
+
+# Your implementation:
+
+totalBeansAlex = sum(beanBags["Alex"].values())
+print(totalBeansAlex) 
+
+### Display Final Bean Totals
+
+#**Action:** Create a table showing the counts of each bean flavor for each of the Jelly Belly Fan Club members.
+
+#- Use the `tabulate` Python package to achieve column-based layout.
+#- Column 1: Flavor (display the flavor name of the bean)
+#- Column 2: Alex (display the number of beans of this flavor belonging to Alex)
+#- Column 3: Ben (display the number of beans of this flavor belonging to Ben)
+#- Column 4: Clara (display the number of beans of this flavor belonging to Clara)
+#- Do not use hard-coded strings for flavor names.
+#- Do not use hard-coded strings for member names.
+
+# Your implementation:
+
+import tabulate
+
+beanData = [[flavor, beanBags["Alex"][flavor], beanBags["Ben"][flavor], beanBags["Clara"][flavor]] for flavor in flavors]
+
+print(tabulate.tabulate(beanData, headers=["Flavor", "Alex", "Ben", "Clara"]))
+
+## Part G - The Recipes
+
+#Fans of Jelly Bellies like to combine beans to form more complicated, unique flavors, such as "Apple Pie" and "Banana Split".
+
+#These combinations are called "recipes" because they often combine multiple beans as "ingredients" to form a well-known food flavor.
+
+#**Action:** Create an empty dictionary called `recipes`.
+
+# Your implementation:
+
+recipes = {}
+
+
+#A simple recipe, "Cola" calls for one(1) "Lemon Lime" bean and one(1) "Cinnamon" bean.
+
+#We will add this recipe to `recipes`.  The name of the recipe "Cola" is the key and the value is... another dictionary where the key of the latter dictionary is the ingredient flavor and the value is the ingredient quantity.
+
+#**Action:** Execute the following code:
+
+recipes["Cola"] = { "Lemon Lime": 1, "Cinnamon": 1 }
+
+#**Actions:** Add the following recipes to `recipes` using the same convention as above:
+
+#- "Apple Pie" is the result of eating 2 "Green Apple" beans and 1 "Cinnamon" bean.
+#- "Key Lime Pie" is the result of eating 1 "Lemon Lime" bean and 1 "Toasted Marshmallow" bean.
+#- "Pink Lemonade" is the result of eating 2 "Cotton Candy" beans and 2 "Sunkist Lemon" beans.
+#- "Root Beer Float" is the result of eating 2 "A&W Root Beer" beans and 1 "A&W Cream Soda" bean.
+#- "Cafe Mocha" is the result of eating 2 "Cappuccino" beans, 1 "Chocolate Pudding" bean, and 1 "French Vanilla" bean.
+#- "Hot Chocolate" is the result of eating 1 "Toasted Marshmallow" bean and 1 "Chocolate Pudding" bean.
+#- "Chocolate-Dipped Strawberries" is the result of eating 2 "Strawberry Daiquiri" beans and 1 "Chocolate Pudding" bean.
+#- "S'mores" is the result of eating 1 "Caramel Corn" bean, 2 "Toasted Marshmallow" beans, and 1 "Chocolate Pudding" bean.
+#- "Banana Split" is the result of eating 1 "Top Banana" bean, 1 "Chocolate Pudding" bean, 1 "Crushed Pineapple" bean, 1 "Strawberry Jam" bean, 1 "Very Cherry" bean, and 1 "French Vanilla" bean.
+
+# Your implementation:
+
+recipes["Apple Pie"] = { "Green Apple": 2, "Cinnamon": 1}
+recipes["Key Lime Pie"] = { "Lemon Lime": 1, "Toasted Marshmallow": 1 }
+recipes["Pink Lemonade"] = { "Cotton Candy": 2, "Sunkist Lemon": 2 }  
+recipes["Root Beer Float"] = { "A&W Root Beer": 2, "A&W Cream Soda": 1 }
+recipes["Cafe Mocha"] = { "Cappuccino": 2, "Chocolate Pudding": 1, "French Vanilla": 1 }
+recipes["Hot Chocolate"] = { "Toasted Marshmallow": 1, "Chocolate Pudding": 1 }
+recipes["Chocolate-Dipped Strawberries"] = { "Strawberry Daiquiri": 2 , "Chocolate Pudding": 1 }  
+recipes["S'mores"] = { "Caramel Corn": 1, "Toasted Marshmallow": 2, "Chocolate Pudding": 1 }
+recipes["Banana Split"] = { "Top Banana": 1, "Chocolate Pudding": 1, "Crushed Pineapple": 1, "Strawberry Jam": 1 , "Very Cherry": 1, "French Vanilla": 1 }
+
+
+#Sitting around the table, the members have decided to make specific recipes from their beans.
+
+#They will make the recipes, one at a time, in the following order:
+
+#1. Key Lime Pie
+#2. Apple Pie
+#3. Cafe Mocha
+#4. Cola
+#5. Hot Chocolate
+#6. Chocolate-Dipped Strawberries
+#7. Pink Lemonade
+#8. Root Beer Float
+#9. Banana Split
+#10. S'mores
+
+#**Action:** Create a list called `recipeNamesInOrder` to hold the names of these recipes in the order.
+
+# Your implementation:
+
+recipeNamesInOrder = ["Key Lime Pie", "Apple Pie", "Cafe Mocha", "Cola", "Hot Chocolate", 
+                    "Chocolate-Dipped Strawberries", "Pink Lemonade", "Root Beer Float",  
+                    "Banana Split", "S'mores"]
+
+## Part H - Initializing Recipe Counts
+
+#In this part, you will create a complex data structure (a dictionary of dictionaries) to store the number of recipes that each member makes.
+
+#**Actions:**
+
+#- Create a dictionary called `recipeCounts`.
+#- Use a combination of loops and existing variables (`memberNames`, `recipeNamesInOrder`, etc.) to dynamically create a dictionary of dictionaries where:
+    #- The keys for the outer dictionary are the member names.
+    #- The keys for the inner dictionary are the recipe names.
+    #- The value for each member and each recipe is initialized to an integer value of zero (0).
+#- Output `recipeCounts` to the screen to verify the data structure, keys, and values.
+
+# Your implementation:
+
+recipeCounts = {}
+for member in memberNames:
+    recipeCounts[member] = {}
+    for recipe in recipeNamesInOrder:
+        recipeCounts[member][recipe] = 0
+        
+print(recipeCounts)
+
+## Part I - Making Recipes
+
+#In this part, you will have the members "make" the recipes and "eat" the beans, dynamically.
+
+#**Action:** Implement the following algorithm:
+
+#- Iterate over each member
+#- The current member tries to make each recipe, one at a time, in the order specified in `recipeNamesInOrder`.
+#- Each recipe will require the exact ingredient flavors and quantity of beans.
+#- Check if the recipe can be made before the member eats the beans.
+#- If the recipe cannot be made, the member moves on to the next recipe.
+#- Otherwise (if the recipe can be made):
+#    - The recipe count is incremented by 1 for that recipe and that member, and
+#    - The member eats the recipe (all the recipe's beans), so
+##    - The program adjusts (subtracts) the flavor totals in the member's bag of beans accordingly.  You can't reuse an eaten bean!
+#- After the last recipe in the order specified in `recipeNamesInOrder`, if the member has made at least one recipe successfully (any recipe), then repeat the order again from the beginning.
+#- Otherwise (if the member went through the entire order without being able to make a single recipe), then:
+#    - Stop making recipes (because this member cannot make any more recipes of any kind), and
+#    - Move on to the next member (until there are no more members).
+#- When finished, output `recipeCounts` to the screen to verify the data structure, keys, and values.
+
+# Your implementation:
+
+for member in memberNames:
+    made_at_least_one_recipe = False
+    while True:
+        for recipeName in recipeNamesInOrder:
+            recipe = recipes[recipeName]
+            can_make_recipe = all(flavor in beanBags[member] and beanBags[member][flavor] >= count for flavor, count in recipe.items())
+            if can_make_recipe:
+                recipeCounts[member][recipeName] += 1
+                for flavor, count in recipe.items():
+                    beanBags[member][flavor] -= count
+                made_at_least_one_recipe = True
+        if not made_at_least_one_recipe:
+            break  
+        made_at_least_one_recipe = False  
+
+print(recipeCounts)
+
+
+
+## Part J - Display Recipe Counts
+
+#**Action:** Create a table showing the counts of each recipe made by each of the Jelly Belly Fan Club members.
+
+#- Use the `tabulate` Python package to achieve column-based layout.
+#- Column 1: Recipe (display the recipe name)
+#- Column 2: Alex (display the number of recipes made of this recipe by Alex)
+#- Column 3: Ben (display the number of recipes made of this recipe by Ben)
+#- Column 4: Clara (display the number of recipes made of this recipe by Clara)
+#- Do not use hard-coded strings for recipe names.
+#- Do not use hard-coded strings for member names.
+
+# Your implementation:
+
+
+import tabulate
+rows = []
+for recipe in recipeNamesInOrder:
+
+    row = [recipe]
+    
+    for member in ["Alex", "Ben", "Clara"]:
+    
+        row.append(recipeCounts[member].get(recipe, 0))
+        
+    rows.append(row)
+
+headers = ["Recipe", "Alex", "Ben", "Clara"]
+table = tabulate.tabulate(rows, headers=headers, tablefmt="grid")
+print(table)
+
+
+#**Action:** Store the number of "Root Beer Float" recipes that Ben made in a variable called `numRootBeerFloats`.
+
+#- Note: You may use hard-coded string values for list, tuple, or dictionary access.
+
+# Your implementation:
+
+numRootBeerFloats = recipeCounts["Ben"]["Root Beer Float"]
+
+
+#**Action:** Use a loop to dynamically determine which member made the most "Pink Lemonade" recipes (and how many).
+
+#- Store the correct member name value in `pinkLemonadeMaxMemberName`.
+#- Store the correct number of recipes in `pinkLemonadeMaxNumber`.
+#- You may use a hard-coded string for "Pink Lemonade", but not for member names.
+
+# Your implementation:
+
+max = 0
+for name in memberNames:
+   if recipeCounts[name]["Pink Lemonade"] > max:
+       pinkLemonadeMaxMemberName = name
+       pinkLemonadeMaxNumber = recipeCounts[name]["Pink Lemonade"]
+
+
+#**Action:** How many total recipes combined did all the members make?  Store the value in a variable called `totalRecipes`.
+
+# Your implementation:
+
+totalRecipes = sum(recipeCounts["Alex"].values()) + sum(recipeCounts["Ben"].values()) + sum(recipeCounts["Clara"].values())
+
+
+## Part K - The Final Results
+
+#To achieve points in this part, you must determine the correct numbers.
+
+#**Action:** Execute the following code block to report the final results.
+
+# print the final results
+
+try:
+    print ("All\tTotal Beans:\t\t\t\t{:,}".format (totalBeansAllMembers))
+except NameError:
+    print ("Error: totalBeansAllMembers not found.")
+    
+try:
+    print ("All\tTotal Recipes Made:\t\t\t{:,}".format(totalRecipes))
+except NameError:
+    print ("Error: totalRecipes not found.")
+
+try:
+    print ("All\tTotal 'Lemon Line' Beans:\t\t{:,}".format (totalLemonLimeAllMembers))
+except NameError:
+    print ("Error: totalLemonLimeAllMembers not found.")
+
+try:
+    print ("Alex\tTotal Beans:\t\t\t\t{:,}".format(totalBeansAlex))
+except NameError:
+    print ("Error: totalBeansAlex not found.")
+
+try:
+    print ("Ben\tRoot Beer Float Recipes Made:\t\t{:,}".format (numRootBeerFloats))
+except NameError:
+    print ("Error: numRootBeerFloats not found.")
+    
+try:
+    print ("\tMost Pink Lemonade Recipes Made:\t{:,} (by {})".format (pinkLemonadeMaxNumber, pinkLemonadeMaxMemberName))
+except NameError:
+    print ("Error: pinkLemonadeMaxNumber or pinkLemonadeMaxMemberName not found.")
+
