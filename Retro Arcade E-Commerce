@@ -1,0 +1,352 @@
+# GBA-465 Assignment 3 - Retro Arcade E-Commerce (Starter)
+
+You run a small but growing e-commerce web site which sells parts that hobbyists use to create retro home arcade game machines.
+
+As a small business, you currently …
+
+- Feature ten (10) products in your catalog for purchase.
+- Sell to five (5) states in the U.S.A. (which have different sales tax rates).
+- Offer three (3) discount "promo codes".
+
+After a successful month fulfilling your orders, you now have some time to analyze the order data downloaded from your e-commerce web site.
+
+As a Python programmer with a love of functions and object-oriented programming, you will do the following:
+
+- Part A: Create a Product Class (10 Points)
+- Part B: Instantiate a Test Product Object (10 Points)
+- Part C: Create an Order Class (10 Points)
+- Part D: Instantiate a Test Order Object (10 Points)
+- Part E: Code a createOrder Function (20 Points)
+- Part F: Load Orders From the Data (20 Points)
+- Part G: Display an Order Summary Table (10 Points)
+- Part H: Display a Monthly Revenue Summary Table (10 Points)
+
+## Data
+
+**Instructions:**
+- Run (execute) the following code cell in order to load `product_catalog`, `state_tax_rates`, `promo_codes`, and `last_months_order_data`.
+
+# Product Catalog data
+product_catalog = {
+    "CPU-4": { "Manufacturer": "Raspberry Pi", "Name": "Raspberry Pi 4 Computer", "Category": "Computer", "Price": 39.99 },
+    "CPU-3B": { "Manufacturer": "Raspberry Pi", "Name": "Raspberry Pi 3B Computer", "Category": "Computer", "Price": 29.99 },
+    "CASE-4": { "Manufacturer": "Flirc", "Name": "Case for Raspberry Pi 4", "Category": "Case", "Price": 15.95 },
+    "CASE-3B": { "Manufacturer": "Flirc", "Name": "Case for Raspberry Pi 3B", "Category": "Case", "Price": 15.95 },
+    "POWER-4": { "Manufacturer": "CanaKit", "Name": "5V 3.5A Power Adapter for Raspberry Pi 4", "Category": "Power", "Price": 12.99 },
+    "POWER-3B": { "Manufacturer": "CanaKit", "Name": "5V 2.5A Power Adapter for Raspberry Pi 3B", "Category": "Power", "Price": 9.99 },
+    "CARD-32": { "Manufacturer": "SanDisk", "Name": "32GB Micro SD Card", "Category": "Storage", "Price": 7.49 },
+    "VIDEO-1": { "Manufacturer": "LCDBoard", "Name": "HDMI + VGA + DVI LCD Video Controller Board", "Category": "Video", "Price": 29.88 },
+    "JOY-1": { "Manufacturer": "Sanwa", "Name": "1-Player Joystick and LED Button Kit", "Category": "Controls", "Price": 49.99 },
+    "JOY-2": { "Manufacturer": "Sanwa", "Name": "2-Player Joystick and LED Button Kit", "Category": "Controls", "Price": 89.99 }
+}
+
+# State Tax Rates data
+# state abbreviation: tax rate (0.08 = 8%)
+state_tax_rates = {
+    "CT": 0.06,
+    "MA": 0.06,
+    "NJ": 0.07,
+    "NY": 0.08,
+    "PA": 0.06
+}
+
+# Promo Codes data
+# promo code: discount rate (0.08 = 8%)
+promo_codes = {
+    "VALENTINE": 0.08,
+    "RETROCADE": 0.05,
+    "PAC-MAN": 0.03
+}
+
+# Last Months Order data
+last_months_order_data = (
+    { "Order": 538, "State": "NY", "Parts": [ { "Part": "CPU-4", "Quantity": 1 } ], "Code": "" },
+    { "Order": 539, "State": "NY", "Parts": [ { "Part": "CPU-4", "Quantity": 1 }, { "Part": "POWER-4", "Quantity": 1 } ], "Code": "" },
+    { "Order": 540, "State": "CT", "Parts": [ { "Part": "CPU-3B", "Quantity": 1 }, { "Part": "VIDEO-1", "Quantity": 1 }, { "Part": "JOY-1", "Quantity": 1 } ], "Code": "VALENTINE"},
+    { "Order": 541, "State": "MA", "Parts": [ { "Part": "CARD-32", "Quantity": 1 } ], "Code": "" },
+    { "Order": 542, "State": "NJ", "Parts": [ { "Part": "CPU-3B", "Quantity": 1 }, { "Part": "CASE-3B", "Quantity": 1 }, { "Part": "POWER-3B", "Quantity": 1 }, { "Part": "VIDEO-1", "Quantity": 1 } ], "Code": "PAC-MAN" },
+    { "Order": 543, "State": "PA", "Parts": [ { "Part": "CPU-4", "Quantity": 1 }, { "Part": "CASE-4", "Quantity": 1 }, { "Part": "POWER-4", "Quantity": 1 }, { "Part": "CARD-32", "Quantity": 1 }, { "Part": "VIDEO-1", "Quantity": 1 }, { "Part": "JOY-2", "Quantity": 1 } ], "Code": "RETROCADE" },
+    { "Order": 544, "State": "NY", "Parts": [ { "Part": "CPU-3B", "Quantity": 1 }, { "Part": "CARD-32", "Quantity": 1 } ], "Code": "" },
+    { "Order": 545, "State": "NY", "Parts": [ { "Part": "CPU-3B", "Quantity": 1 }, { "Part": "CASE-3B", "Quantity": 1 }, { "Part": "POWER-3B", "Quantity": 1 }, { "Part": "CARD-32", "Quantity": 1 }, { "Part": "VIDEO-1", "Quantity": 1 }, { "Part": "JOY-2", "Quantity": 1 } ], "Code": "PAC-MAN" },
+    { "Order": 546, "State": "NY", "Parts": [ { "Part": "JOY-1", "Quantity": 1 } ], "Code": "VALENTINE" },
+    { "Order": 547, "State": "MA", "Parts": [ { "Part": "CPU-3B", "Quantity": 2 }, { "Part": "CASE-3B", "Quantity": 2 } ], "Code": "RETROCADE" },
+    { "Order": 548, "State": "NJ", "Parts": [ { "Part": "CPU-4", "Quantity": 10 } ], "Code": "" }
+)
+
+
+## Part A - Create a Product Class
+
+**Instructions:**
+- **Create** a `Product` class which defines the following attributes and methods for a Product sold on your e-commerce site:
+- Attributes:
+    - part (string)
+    - manufacturer (string)
+    - name (string)
+    - category (string)
+    - price (float)
+- Method 1 (Constructor)
+    - Description: The constructor accepts parameter values during instantiation and assigns the values to attributes.
+    - Parameters
+        - part (string)
+        - manufacturer (string)
+        - name (string)
+        - category (string)
+        - price (float)
+    - Body
+        - Initialize the object's attributes to the parameter values.
+    - Returns
+        - No returns
+
+# Your implementation:
+
+class Product:
+    def __init__(self, part, manufacturer, name, category, price):
+        self.part = part
+        self.manufacturer = manufacturer 
+        self.name = name
+        self.category = category
+        self.price = price
+
+## Part B - Instantiate a Test Product Object
+**Instructions:**
+- **Instantiate** a `Product` object for the following static information:
+    - Part: "Joy-1"
+    - Manufacturer: "Sanwa"
+    - Name: "1-Player Joystick and LED Buttons Kit"
+    - Category: "Controls"
+    - Price: 49.99
+- **Store** the instantiated object in a variable called `myProduct`.
+- **Print** the name attribute of the `myProduct` object.
+
+# Your implementation:
+
+myProduct = Product("Joy-1", "Sanwa", "1-Player Joystick and LED Buttons Kit", "Controls", 49.99)
+print(myProduct.name)
+
+
+## Part C - Create an Order Class
+
+**Instructions:**
+- **Create** an `Order` class which defines the following attributes and methods for an Order made on your e-commerce site:
+- Attributes
+    - order_number (integer)
+    - tax_rate (float)
+    - discount_rate (float)
+    - products (list of Product objects)
+- Method 1 (Constructor)
+    - Description: The constructor accepts parameter values during instantiation and assigns the values to attributes.
+    - Parameters
+        - order_number (integer)
+        - tax_rate (float, optional, with a default value of 0.00)
+        - discount_rate (float, optional, with a default value of 0.00)
+    - Body
+        - Initialize the object's order_number, tax_rate, and discount_rate attributes to the parameter values.
+        - Initialize the object's products attribute to an empty list.
+    - Returns
+        - No returns
+- Method 2 (addProduct)
+    - Description: addProduct accepts a Product object value and adds the value to the object's products list.
+    - Parameters
+        - product (a Product object)
+    - Body
+        - Adds the product parameter to the object's products list.
+    - Returns
+        - No returns
+- Method 3 (getSubTotal)
+    - Description: getSubTotal calculates the order sub-total (the sum of the product prices in the object's products list).
+    - Parameters
+        - No parameters
+    - Body
+        - Calculate the order sub-total (the sum of the product prices).
+    - Returns
+        - The calculated order sub-total
+- Method 4 (getTotal)
+    - Description: getTotal calculates the order total (the result of calling getSubTotal multiplied by one minus the discount rate multiplied by one plus the tax rate).
+    - Parameters
+        - No parameters
+    - Body
+        - Calculate the order total (the result of calling getSubTotal multiplied by one minus the discount rate multiplied by one plus the tax rate).
+    - Returns
+        - The calculated order total
+- Method 5 (getNumProducts)
+    - Description: getNumProducts returns the number of products in the object's products list.
+    - Parameters
+        - No parameters
+    - Returns
+        - The number of products
+
+# Your implementation:
+
+class Order:
+    def __init__(self, order_number, tax_rate=0.0, discount_rate=0.0):
+        self.order_number = order_number
+        self.tax_rate = tax_rate
+        self.discount_rate = discount_rate 
+        self.products = []
+    
+    def addProduct(self, product):
+        self.products.append(product)
+        
+    def getSubTotal(self):
+        subtotal = 0
+        for product in self.products:
+            subtotal += product.price
+        return subtotal
+    
+    def getTotal(self):
+        subtotal = self.getSubTotal()
+        return subtotal * (1 - self.discount_rate) * (1 + self.tax_rate)
+    
+    def getNumProducts(self):
+        return len(self.products)
+    
+
+
+
+
+
+## Part D - Instantiate a Test Order Object
+**Instructions:**
+- **Instantiate** an `Order` object for the following static information:
+    - Order Number: 538
+- **Store** the instantiated object in a variable called `myOrder`.
+- **Print** the order number attribute of the `myOrder` object.
+
+# Your implementation:
+
+myOrder = Order(538) 
+print(myOrder.order_number)
+
+
+
+## Part E - Code a createOrder Function
+**Instructions:**
+- **Create** a function which converts order data into an order object (including its aggregate product objects).
+- Function (createOrder)
+    - Description: `createOrder` converts order data into an order object (including its aggregate product objects).
+    - Parameters
+        - order_number (integer)
+        - parts_data (list of strings)
+        - state_abbreviation (string)
+        - promo_code (string)
+    - Body
+        - **Determine** the tax rate for `state_abbreviation` by accessing the `global state_tax_rates`.
+        - **Determine** the discount rate for `promo_code` by accessing the `global promo_codes`.
+        - **Instantiate** an object from the `Order` class called `order`.
+        - **Iterate** over the `parts_data` parameter value.  For each part, considering the quantity of parts orders:
+        - **Look up** the product manufacturer, name, category, and price by accessing the global `product_catalog`.
+        - **Instantiate** an object from the `Product` class called `product`.
+        - **Initialize** the product object attributes using the constructor.
+        - **Add** the product to the order using the `addProduct` method.
+    - Returns
+        - The order object instantiated in the body.
+
+# Your implementation:
+
+def createOrder(order_number, parts_data, state_abbreviation, promo_code):
+    tax_rate = state_tax_rates[state_abbreviation]
+    discount_rate = promo_codes.get(promo_code, 0)
+    
+    order = Order(order_number, tax_rate, discount_rate)
+    
+    for part in parts_data:
+        product = Product(part["Part"], 
+                          product_catalog[part["Part"]]["Manufacturer"],
+                          product_catalog[part["Part"]]["Name"],
+                          product_catalog[part["Part"]]["Category"],
+                          product_catalog[part["Part"]]["Price"])
+                          
+        order.addProduct(product)
+        
+    return order
+
+
+
+## Part F - Load Orders From the Data
+**Instructions:**
+- **Write** dynamic Python code to implement the following steps:
+    - **Create** an empty list called `orders`.
+    - **Iterate** over the global `last_months_order_data`.
+    - For each row in the data:
+        - **Call** the `createOrder` function (passing in parts and other values).
+        - **Get** the returned order object.
+        - **Append** the order object to orders.
+
+# Your implementation:
+
+orders = []
+
+for row in last_months_order_data:
+    order = createOrder(row["Order"], row["Parts"], row["State"], row["Code"])
+    orders.append(order)
+
+## Part G - Display an Order Summary Table
+**Instructions:**
+- **Write** dynamic Python code to implement the following steps:
+    - **Access** the list of objects you created in orders.
+    - **Generate** the following output dynamically:
+        - **Use** the `tabulate` Python package to achieve a true, column-based layout.
+        - **Create** an "Order" column.  Use left-alignment for this column (both header and data).
+        - **Create** "Size", "Sub-Total", "Tax", "Discount", and "Total" columns.  Use right-alignment for these columns (both header and data).
+        - **Iterate** over orders, creating a row for each order:
+            - In the "Order" column, **display** `order_number`.
+            - In the "Size" column, **display** the result of the `getNumProducts` method.
+            - In the "Sub-Total" column, **display** the result of the `getSubTotal` method.  Add \\$ and format to two (2) decimal places.
+            - In the "Tax" column, **display** `tax_rate`.  Show as percent, format to one (1) decimal place, and add %.
+            - In the "Discount" column, **display** `discount_rate`.  If the value is 0, show a dash.  Otherwise, show as percent, format to one (1) decimal place, and add %.
+            - In the "Total" column, **display** the result of the `getTotal` method.  Add $ and format to two (2) decimal places.
+        - **Do not** hard-code index values.
+
+# Your implementation:
+
+import tabulate
+
+table = []
+headers = ["Order", "Size", "Sub-Total", "Tax", "Discount", "Total"]
+
+for order in orders:
+    size = order.getNumProducts()
+    subtotal = f"${order.getSubTotal():.2f}" 
+    tax = f"{order.tax_rate:.1%}"
+    discount = f"{order.discount_rate:.1%}" if order.discount_rate > 0 else "-"
+    total = f"${order.getTotal():.2f}"
+    
+    table.append([order.order_number, size, subtotal, tax, discount, total])
+    
+print(tabulate.tabulate(table, headers, tablefmt="grid"))
+
+
+## Part H - Display a Monthly Revenue Summary Table
+**Instructions:**
+- **Write** dynamic Python code to implement the following steps:
+    - **Determine** the total number of orders from last month's orders. Store the value in a variable called `total_num_orders`.
+    - **Calculate** the total revenue generated from last month's orders using orders, iteration, and getTotal. Store the value in a variable called `total_revenue`.
+    - **Calculate** the total number of products sold from last month's orders using orders, iteration, and getNumProducts. Store the value in a variable called `total_num_products`.
+    - **Calculate** the average order size (divide total_num_products by total_num_orders). Store the value in a variable called `average_order_size`.
+    - **Calculate** the average order revenue (divide total_revenue by total_num_orders). Store the value in a variable called `average_order_revenue`.
+    - **Generate** the following output dynamically:
+        - **Use** the `tabulate` Python package to achieve a true, column-based layout.
+        - **Create** two columns.  The first column is for labels and the second column is for values.
+        - **Use** right-alignment for both columns.
+        - For "Total Orders:" row, **display** `total_num_orders`.
+        - For "Total Products Sold:" row, **display** `total_num_products`.
+        - For "Total Revenue:" row, **display** `total_revenue`.  Add \\$ and format to two (2) decimal places.
+        - For "Average Size Per Order:" row, **display** `average_order_size`.  Format to one (1) decimal place.
+        - For "Average Revenue Per Order:" row, **display** `average_order_revenue`.  Add $ and format to two (2) decimal places. 
+
+# Your implementation:
+
+total_num_orders = len(orders)
+total_revenue = sum(o.getTotal() for o in orders)
+total_num_products = sum(o.getNumProducts() for o in orders)
+average_order_size = total_num_products / total_num_orders
+average_order_revenue = total_revenue / total_num_orders
+
+summary = [["Total Orders:", total_num_orders],
+           ["Total Products Sold:", total_num_products],
+           ["Total Revenue:", f"${total_revenue:.2f}"],
+           ["Average Size Per Order:", f"{average_order_size:.1f}"],
+           ["Average Revenue Per Order:", f"${average_order_revenue:.2f}"]]
+           
+print(tabulate.tabulate(summary, tablefmt="grid"))
+
